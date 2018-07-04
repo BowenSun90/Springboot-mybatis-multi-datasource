@@ -1,5 +1,6 @@
 package com.example;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -27,12 +28,14 @@ public class PrimaryDataSourceConfig {
 	@Primary
 	@ConfigurationProperties(prefix = "spring.datasource.primary")
 	public DataSource primaryDataSource() {
-		return DataSourceBuilder.create().build();
+
+		return DataSourceBuilder.create().type(ComboPooledDataSource.class).build();
 	}
 
 	@Bean(name = "primaryTransactionManager")
 	@Primary
 	public DataSourceTransactionManager transactionManager() {
+
 		return new DataSourceTransactionManager(primaryDataSource());
 	}
 
@@ -51,8 +54,8 @@ public class PrimaryDataSourceConfig {
 	@Bean(name = "sqlSessionTemplate1")
 	@Primary
 	public SqlSessionTemplate sqlSessionTemplate1(@Qualifier("primarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
-		SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory);
-		return template;
+		
+		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
 }

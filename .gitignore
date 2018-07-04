@@ -26,4 +26,5 @@ hs_err_pid*
 application-dev.properties
 */.idea/*
 */target/*
+.idea/
 
