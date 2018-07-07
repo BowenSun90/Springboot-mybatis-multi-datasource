@@ -27,4 +27,4 @@ application-dev.properties
 */.idea/*
 */target/*
 .idea/
-
+target/

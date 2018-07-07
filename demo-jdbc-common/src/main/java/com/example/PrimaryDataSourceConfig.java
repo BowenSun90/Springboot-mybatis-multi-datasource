@@ -54,7 +54,7 @@ public class PrimaryDataSourceConfig {
 	@Bean(name = "sqlSessionTemplate1")
 	@Primary
 	public SqlSessionTemplate sqlSessionTemplate1(@Qualifier("primarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
-		
+
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
