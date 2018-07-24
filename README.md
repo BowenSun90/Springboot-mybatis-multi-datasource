@@ -29,3 +29,6 @@ spring.datasource.secondary.driver-class-name=com.mysql.jdbc.Driver
 
 ## demo-web  
 提供Web服务，使用demo-libs提供的Service和自己连接的DataSource
+
+## MyBatis Code generator   
+[Generator Config](https://github.com/BowenSun90/Springboot-mybatis-multi-datasource/tree/master/demo-jdbc-common/src/main/resources/generator)
